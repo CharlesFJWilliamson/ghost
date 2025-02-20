@@ -28,7 +28,7 @@ services:
 
 - type: pserv
   name: mysql
-  plan: basic-256 # $6/month, 256MB RAM, 0.1 CPU
+  plan: starter # $7/month, lowest cost option for private services
   env: docker
   repo: https://github.com/render-examples/mysql
   autoDeploy: false
