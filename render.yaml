@@ -3,10 +3,11 @@ services:
   name: ghost
   env: docker
   autoDeploy: false
+  plan: starter # $7/month, 512MB RAM, 0.5 CPU
   disk:
     name: ghost
     mountPath: /var/lib/ghost/content
-    sizeGB: 10 #Feel free to change this to suit your needs.
+    sizeGB: 5 # Reduced from 10GB to 5GB to save $1.25/month
   envVars:
     - key: database__client
       value: mysql
@@ -27,14 +28,14 @@ services:
 
 - type: pserv
   name: mysql
-  plan: standard
+  plan: basic-256 # $6/month, 256MB RAM, 0.1 CPU
   env: docker
   repo: https://github.com/render-examples/mysql
   autoDeploy: false
   disk:
     name: mysql
     mountPath: /var/lib/mysql
-    sizeGB: 10
+    sizeGB: 5 # Reduced from 10GB to 5GB to save $1.25/month
   envVars:
     - key: MYSQL_DATABASE
       value: ghostdb
